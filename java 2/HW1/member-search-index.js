@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"<Unnamed>","c":"TestComplexNumber","l":"setVals()"},{"p":"<Unnamed>","c":"TestComplexNumber","l":"testAdd()"},{"p":"<Unnamed>","c":"TestComplexNumber","l":"TestComplexNumber()"},{"p":"<Unnamed>","c":"TestComplexNumber","l":"testDiv()"},{"p":"<Unnamed>","c":"TestComplexNumber","l":"testMulti()"},{"p":"<Unnamed>","c":"TestComplexNumber","l":"testSub()"}]

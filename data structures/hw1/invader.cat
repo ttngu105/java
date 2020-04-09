@@ -1,0 +1,98 @@
+%Header Record
+Format:TXT
+Communication SW:0
+Data Type:PG
+Capacity:815
+File Name:Invaders
+Group Name:
+Password:
+Option1:NL
+Option2:
+Option3:
+Option4:
+%Data Record
+\Cls
+\ViewWindow 1,126,1,1,64,1
+0\->A~Z
+\Text 20,45,"INVADERS"
+\While \Getkey\<>31
+\Text 30,42,"PUSH [EXE]"
+\Text 30,42,"                "
+\WhileEnd
+\Cls
+50\->P
+1\->Z
+1\->G~I
+15\->J
+10\->A
+60\->B
+\While Z=1
+\For 1\->C \To 3
+C=1\=>G=0\=>\Goto1
+C=2\=>H=0\=>\Goto1
+C=3\=>I=0\=>\Goto1
+A+4C\->D
+N\<>777\=>\Int 5\Ran#+1\->E
+\If (E=3)\ And (N\<>777)
+\Then 777\->N
+D\->M
+60\->O
+\IfEnd
+\PlotOn D,B
+\PlotOn D+1,B
+\PlotOn D,B+1
+\PlotOn D+1,B+1
+\PlotOff D-J,B
+\PlotOff D-(J-1),B
+\PlotOff D-J,B+1
+\PlotOff D-(J-1),B+1
+\Lbl 1
+\If N=777
+\Then \PlotOn M,O
+\PlotOff M,O+10
+O-10\->O
+O<11\=>M>P-1\=>M<P+6\=>0\->Z
+O\<=-3\=>0\->N
+\IfEnd
+\If V=777
+\Then \PlotOn W,R
+\PlotOff W,R-10
+R+10\->R
+\If (R>49)\ And (R<66)
+\Then W>A+3\=>W<A+7\=>0\->G
+W>A+7\=>W<A+11\=>0\->H
+W>A+11\=>W<A+15\=>0\->I
+\IfEnd
+R>64\=>0\->V
+\IfEnd
+\Text 55,P,"O"
+\If \Getkey=38
+\Then P-10\->P
+P<24\=>P+10\->P
+\Text 55,P,"O"
+\Text 55,P+10," "
+\IfEnd
+\If \Getkey=27
+\Then P+10\->P
+P<24\=>P-10\->P
+\Text 55,P,"O"
+\Text 55,P-10," "
+\IfEnd
+\If (\Getkey=28)\ And (V\<>777)
+\Then P\->W
+777\->V
+10\->R
+\IfEnd
+\Next 
+D+14>109\=>-15\->J
+D<16\=>15\->J
+A+J\->A
+T+1\->T
+T>5\=>\Text 2,5,"                     "
+T>5\=>0\->T
+G=0\=>H=0\=>I=0\=>2\->Z
+\WhileEnd
+Z=0\=>\Text 20,45,"GAME OVER"
+Z=2\=>\Text 20,45,"YOU WIN"
+
+%End
